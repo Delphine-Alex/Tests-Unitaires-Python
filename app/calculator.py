@@ -19,16 +19,21 @@ class Calculator:
         return result
 
     def square_root(x):
+        # Error added for negative values
+        if x < 0:
+            raise ValueError("Negative values are not supported for square root")
         if x == 0 or x == 1:
             return x 
         val = x
         precision = 0.0000001
         while abs(val - x / val) > precision:
             val = (val + x / val) / 2 
-        
+    
         return val
 
 def calculate(operation, x, y):
+    # Result none added
+    result = None
     if operation == "add":
         result = Calculator.add(x,y)
     elif operation == "substract": 
